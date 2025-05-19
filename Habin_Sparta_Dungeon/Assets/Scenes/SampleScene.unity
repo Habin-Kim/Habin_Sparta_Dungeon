@@ -541,7 +541,7 @@ GameObject:
   - component: {fileID: 846545084}
   - component: {fileID: 846545083}
   - component: {fileID: 846545082}
-  m_Layer: 8
+  m_Layer: 30
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -721,7 +721,6 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
-  - component: {fileID: 963194229}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -803,22 +802,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1483999065}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &963194229
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47316c378b6634ac995fea661a23a830, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactableLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  maxDistance: 5
 --- !u!1 &998629802
 GameObject:
   m_ObjectHideFlags: 0
@@ -907,7 +890,7 @@ GameObject:
   - component: {fileID: 1101721701}
   - component: {fileID: 1101721703}
   - component: {fileID: 1101721702}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1233,7 +1216,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1343285196}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Test
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1621,7 +1604,7 @@ GameObject:
   - component: {fileID: 1865042608}
   - component: {fileID: 1865042607}
   - component: {fileID: 1865042606}
-  m_Layer: 8
+  m_Layer: 30
   m_Name: TestObj
   m_TagString: Untagged
   m_Icon: {fileID: 0}
