@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -24,7 +22,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("HideInspector")]
     private Rigidbody _rigidbody;
-    private bool _canLook = true;
+    private bool canLook = true;
 
     private void Awake()
     {
@@ -32,9 +30,27 @@ public class PlayerController : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody>();
     }
 
+    void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
     private void FixedUpdate()
     {
         Move();
+    }
+
+    private void LateUpdate()
+    {
+        if (canLook)
+        {
+            CameraLook();
+        }
+    }
+
+    public void OnLook(InputAction.CallbackContext context) // 마우스 입력
+    {
+        _mouseDelta = context.ReadValue<Vector2>();
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -70,6 +86,16 @@ public class PlayerController : MonoBehaviour
         _rigidbody.velocity = dir;
     }
 
+    void CameraLook()
+    {
+        // 마우스가 위아래로 얼마나 움직였는지
+        _camCurXRot += _mouseDelta.y * lookSensitivity;
+        _camCurXRot = Mathf.Clamp(_camCurXRot, minXLook, maxXLook); // 시야각 제한
+        cameraContainer.localEulerAngles = new Vector3(-_camCurXRot, 0, 0);
+
+        transform.eulerAngles += new Vector3(0, _mouseDelta.x * lookSensitivity, 0);
+    }
+
     bool IsGrounded()
     {
         // 레이 4개 생성
@@ -92,5 +118,11 @@ public class PlayerController : MonoBehaviour
         }
 
         return false;
+    }
+    
+        public void ToggleCursor(bool toggle)
+    {
+        Cursor.lockState = toggle ? CursorLockMode.None : CursorLockMode.Locked;
+        canLook = !toggle;
     }
 }
