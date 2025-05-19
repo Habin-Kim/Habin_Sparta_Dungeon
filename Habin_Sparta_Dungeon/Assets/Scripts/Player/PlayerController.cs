@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float moveSpeed = 2f; // 움직이는 속도
     [SerializeField] private float jumpForce = 2f; // 점프 힘
     [SerializeField] private LayerMask groundLayer; // 바닥 레이어 체크
-    private Vector2 _curMoveInput; // 현재 누른 이동버튼
+    private Vector2 curMoveInput; // 현재 누른 이동버튼
 
     [Header("Look")]
     [SerializeField] private Transform cameraContainer;
@@ -17,8 +17,8 @@ public class PlayerController : MonoBehaviour
     // 시야 민감도
     [SerializeField] private float lookSensitivity;
 
-    private float _camCurXRot; // 카메라 회전값
-    private Vector2 _mouseDelta; // 마우스 값
+    private float camCurXRot; // 카메라 회전값
+    private Vector2 mouseDelta; // 마우스 값
 
     [Header("HideInspector")]
     private Rigidbody _rigidbody;
@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnLook(InputAction.CallbackContext context) // 마우스 입력
     {
-        _mouseDelta = context.ReadValue<Vector2>();
+        mouseDelta = context.ReadValue<Vector2>();
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -58,12 +58,12 @@ public class PlayerController : MonoBehaviour
         // 이동 버튼 누르고 있을때
         if (context.phase == InputActionPhase.Performed)
         {
-            _curMoveInput = context.ReadValue<Vector2>();
+            curMoveInput = context.ReadValue<Vector2>();
         }
         // 손을 땔때
         else if (context.phase == InputActionPhase.Canceled)
         {
-            _curMoveInput = Vector2.zero;
+            curMoveInput = Vector2.zero;
         }
     }
 
@@ -79,7 +79,7 @@ public class PlayerController : MonoBehaviour
     private void Move()
     {
         // 벡터 좌표로 생각 y는 앞뒤 x는 좌우
-        Vector3 dir = (transform.forward * _curMoveInput.y) + (transform.right * _curMoveInput.x);
+        Vector3 dir = (transform.forward * curMoveInput.y) + (transform.right * curMoveInput.x);
         dir *= moveSpeed;
         dir.y = _rigidbody.velocity.y;
 
@@ -89,11 +89,11 @@ public class PlayerController : MonoBehaviour
     void CameraLook()
     {
         // 마우스가 위아래로 얼마나 움직였는지
-        _camCurXRot += _mouseDelta.y * lookSensitivity;
-        _camCurXRot = Mathf.Clamp(_camCurXRot, minXLook, maxXLook); // 시야각 제한
-        cameraContainer.localEulerAngles = new Vector3(-_camCurXRot, 0, 0);
+        camCurXRot += mouseDelta.y * lookSensitivity;
+        camCurXRot = Mathf.Clamp(camCurXRot, minXLook, maxXLook); // 시야각 제한
+        cameraContainer.localEulerAngles = new Vector3(-camCurXRot, 0, 0);
 
-        transform.eulerAngles += new Vector3(0, _mouseDelta.x * lookSensitivity, 0);
+        transform.eulerAngles += new Vector3(0, mouseDelta.x * lookSensitivity, 0);
     }
 
     bool IsGrounded()
