@@ -7,10 +7,9 @@ public class PlayerController : MonoBehaviour
 {
     [Header("Movement")]
     [SerializeField] private float moveSpeed = 2f; // 움직이는 속도
-    [SerializeField] private float jumpForce = 10f; // 점프 힘
-
+    [SerializeField] private float jumpForce = 2f; // 점프 힘
+    [SerializeField] private LayerMask groundLayer; // 바닥 레이어 체크
     private Vector2 _curMoveInput; // 현재 누른 이동버튼
-    private LayerMask groundLayer; // 바닥 레이어 체크
 
     [Header("Look")]
     [SerializeField] private Transform cameraContainer;
@@ -33,7 +32,12 @@ public class PlayerController : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody>();
     }
 
-    public void OnMoveInput(InputAction.CallbackContext context)
+    private void FixedUpdate()
+    {
+        Move();
+    }
+
+    public void OnMove(InputAction.CallbackContext context)
     {
         // 이동 버튼 누르고 있을때
         if (context.phase == InputActionPhase.Performed)
@@ -60,6 +64,10 @@ public class PlayerController : MonoBehaviour
     {
         // 벡터 좌표로 생각 y는 앞뒤 x는 좌우
         Vector3 dir = (transform.forward * _curMoveInput.y) + (transform.right * _curMoveInput.x);
+        dir *= moveSpeed;
+        dir.y = _rigidbody.velocity.y;
+
+        _rigidbody.velocity = dir;
     }
 
     bool IsGrounded()
