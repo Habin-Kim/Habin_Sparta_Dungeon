@@ -4,7 +4,9 @@
 #
 .utmp/
 /[Ll]ibrary/
+/Habin_Sparta_Dungeon/[Ll]ibrary/
 /[Tt]emp/
+/Habin_Sparta_Dungeon/[Tt]emp/
 /[Oo]bj/
 /[Bb]uild/
 /[Bb]uilds/
