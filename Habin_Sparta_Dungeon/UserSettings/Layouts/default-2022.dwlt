@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1470
     height: 830
   m_ShowMode: 4
-  m_Title: Hierarchy
+  m_Title: Game
   m_RootView: {fileID: 7}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -249,7 +249,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 51
+  controlID: 19
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -968,9 +968,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: 320affff960bffffea8b0000
+      m_SelectedIDs: 865d0000
+      m_LastClickedID: 23942
+      m_ExpandedIDs: 28fbffff9e5d0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1054,7 +1054,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 9a250000
     m_LastClickedID: 9626
-    m_ExpandedIDs: 00000000de400000a2410000
+    m_ExpandedIDs: 00000000825e0000845e0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1082,7 +1082,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: ffffffff00000000de400000a2410000
+    m_ExpandedIDs: ffffffff00000000825e0000845e0000a85e0000b25e0000e05e0000e25e0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1179,7 +1179,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 0
+  m_LastVerticalScrollValue: 340.62726
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:
