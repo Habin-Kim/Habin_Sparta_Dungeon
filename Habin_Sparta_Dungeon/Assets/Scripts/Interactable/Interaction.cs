@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -48,7 +46,6 @@ public class Interaction : MonoBehaviour
     void CheckInfo()
     {
         Ray ray = mainCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
-
         RaycastHit hit;
 
         if (Physics.Raycast(ray, out hit, maxDistance, layerMask))
@@ -65,9 +62,12 @@ public class Interaction : MonoBehaviour
         }
         else
         {
-            curInteractObj = null;
-            curInteractable = null;
-            promptText.gameObject.SetActive(false);
+            if (curInteractObj != null)
+            {
+                curInteractObj = null;
+                curInteractable = null;
+                promptText.gameObject.SetActive(false);
+            }
         }
     }
 
