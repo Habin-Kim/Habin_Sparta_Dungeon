@@ -72,7 +72,7 @@ public class PlayerController : MonoBehaviour
         // 점프 버튼 눌렀을때 
         if (context.phase == InputActionPhase.Started && IsGrounded())
         {
-            _rigidbody.AddForce(Vector2.up * jumpForce, ForceMode.Impulse);
+            _rigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
     }
 
