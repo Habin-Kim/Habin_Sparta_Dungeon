@@ -2,7 +2,6 @@ using UnityEngine;
 
 public enum ItemType
 {
-    Equipable,
     Consumable
 }
 
@@ -25,7 +24,6 @@ public class ItemData : ScriptableObject
     public string displayName;
     public string description;
     public ItemType type;
-    public Sprite icon;
     public GameObject dropPrefab;
 
     [Header("Stacking")]

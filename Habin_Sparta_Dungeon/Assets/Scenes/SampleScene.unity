@@ -1225,6 +1225,7 @@ GameObject:
   - component: {fileID: 998629803}
   - component: {fileID: 998629805}
   - component: {fileID: 998629804}
+  - component: {fileID: 998629806}
   m_Layer: 5
   m_Name: Stamaina
   m_TagString: Untagged
@@ -1291,6 +1292,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 998629802}
   m_CullTransparentMesh: 1
+--- !u!114 &998629806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 998629802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 061b6f31146f1444d99563704fa78954, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startValue: 100
+  maxValue: 100
+  curValue: 0
+  passiveValue: 5
+  uiBar: {fileID: 2003619380}
 --- !u!1 &1101721700
 GameObject:
   m_ObjectHideFlags: 0
@@ -1475,6 +1493,7 @@ GameObject:
   - component: {fileID: 1262032758}
   - component: {fileID: 1262032760}
   - component: {fileID: 1262032759}
+  - component: {fileID: 1262032761}
   m_Layer: 5
   m_Name: Health
   m_TagString: Untagged
@@ -1541,6 +1560,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1262032757}
   m_CullTransparentMesh: 1
+--- !u!114 &1262032761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1262032757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 061b6f31146f1444d99563704fa78954, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startValue: 100
+  maxValue: 100
+  curValue: 0
+  passiveValue: -2
+  uiBar: {fileID: 1485444083}
 --- !u!1 &1314831938
 GameObject:
   m_ObjectHideFlags: 0
@@ -1845,6 +1881,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1826730698}
   - component: {fileID: 1826730699}
+  - component: {fileID: 1826730700}
   m_Layer: 5
   m_Name: Condition
   m_TagString: Untagged
@@ -1899,6 +1936,20 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &1826730700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1826730697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5842915b2c4e4637befb1fd167c2f91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: 1262032761}
+  stamina: {fileID: 998629806}
 --- !u!1 &1855082669
 GameObject:
   m_ObjectHideFlags: 0
@@ -2238,6 +2289,7 @@ GameObject:
   - component: {fileID: 1955498671}
   - component: {fileID: 1955498672}
   - component: {fileID: 1955498673}
+  - component: {fileID: 1955498674}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2418,7 +2470,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 0}
-  itemData: {fileID: 0}
+  condition: {fileID: 0}
 --- !u!114 &1955498672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2458,6 +2510,20 @@ MonoBehaviour:
     m_Bits: 256
   maxDistance: 5
   promptText: {fileID: 0}
+--- !u!114 &1955498674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1955498666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8878ac6a0fb3c4099929e91951537daf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiCondition: {fileID: 0}
+  noStamina: 1
 --- !u!1 &2003619378
 GameObject:
   m_ObjectHideFlags: 0
