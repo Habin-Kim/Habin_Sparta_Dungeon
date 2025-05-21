@@ -4,8 +4,8 @@ public class PlayerCondition : MonoBehaviour
 {
     public UICondition uiCondition;
 
-    Condition health { get { return uiCondition.health; } }
-    Condition stamina { get { return uiCondition.stamina; } }
+    public Condition health { get { return uiCondition.health; } }
+    public Condition stamina { get { return uiCondition.stamina; } }
 
     public float noStamina;
 

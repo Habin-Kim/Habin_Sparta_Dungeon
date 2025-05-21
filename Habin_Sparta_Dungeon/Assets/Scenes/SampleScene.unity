@@ -2504,7 +2504,7 @@ MonoBehaviour:
   moveSpeed: 2
   jumpForce: 3
   runSpeed: 4
-  runCost: 5
+  runCost: 0.5
   groundLayer:
     serializedVersion: 2
     m_Bits: 64

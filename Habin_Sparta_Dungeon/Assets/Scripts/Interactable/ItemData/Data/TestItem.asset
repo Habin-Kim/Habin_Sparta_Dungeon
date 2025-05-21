@@ -12,11 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb5392596478842608b7c6aecf191830, type: 3}
   m_Name: TestItem
   m_EditorClassIdentifier: 
-  displayName: "\uD68C\uBCF5\uAD6C"
-  description: "HP \uD68C\uBCF5 10"
-  type: 1
-  icon: {fileID: 0}
-  dropPrefab: {fileID: 6745621666959674112, guid: b45bbcf98453b4a75b33a2cfff7288cc, type: 3}
-  canStack: 1
+  displayName: "\uC18D\uB3C4\uAD6C"
+  description: "\uC77C\uC815\uC2DC\uAC04 \uC18D\uB3C4 +2"
+  type: 0
+  canStack: 0
   maxStackAmount: 5
-  consumables: []
+  Instants: []

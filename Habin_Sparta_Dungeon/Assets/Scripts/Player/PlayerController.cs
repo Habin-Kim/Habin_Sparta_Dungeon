@@ -4,9 +4,9 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [Header("Movement")]
-    [SerializeField] private float moveSpeed = 2f; // 움직이는 속도
+    [SerializeField] public float moveSpeed = 2f; // 움직이는 속도
     [SerializeField] private float jumpForce = 2f; // 점프 힘
-    [SerializeField] private float runSpeed = 4f; // 달리는 속도
+    [SerializeField] public float runSpeed = 4f; // 달리는 속도
     [SerializeField] private float runCost = 0.02f; // 스태미나 소비
     [SerializeField] private LayerMask groundLayer; // 바닥 레이어 체크
     private Vector2 _curMoveInput; // 현재 누른 이동버튼
