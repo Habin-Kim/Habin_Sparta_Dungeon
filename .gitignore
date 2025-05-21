@@ -10,7 +10,9 @@
 /[Oo]bj/
 /[Bb]uild/
 /[Bb]uilds/
+/Habin_Sparta_Dungeon/[Ll]ogs/
 /[Ll]ogs/
+/Habin_Sparta_Dungeon/[Uu]ser[Ss]ettings/
 /[Uu]ser[Ss]ettings/
 *.log
 

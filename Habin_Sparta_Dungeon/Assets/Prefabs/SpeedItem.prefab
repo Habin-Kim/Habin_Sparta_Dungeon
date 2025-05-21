@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5378719326687812084}
   - component: {fileID: -1706886942441670580}
   m_Layer: 8
-  m_Name: TestItem
+  m_Name: SpeedItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -100,7 +100,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -118,4 +118,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 062c8e9b63d2a46f1a7174ed081abeff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 0}
+  data: {fileID: 11400000, guid: 2fb677f3d731448bd88569e9bc260387, type: 2}
