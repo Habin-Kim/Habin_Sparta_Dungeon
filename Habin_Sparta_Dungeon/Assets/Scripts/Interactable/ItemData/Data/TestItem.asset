@@ -17,4 +17,7 @@ MonoBehaviour:
   type: 0
   canStack: 0
   maxStackAmount: 5
-  Instants: []
+  Instants:
+  - type: 1
+    value: 2
+    duration: 15
