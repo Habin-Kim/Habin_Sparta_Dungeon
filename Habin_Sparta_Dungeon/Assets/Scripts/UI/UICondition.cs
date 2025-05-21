@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class UICondition : MonoBehaviour
@@ -12,7 +10,6 @@ public class UICondition : MonoBehaviour
         CharacterManager.Instance.Player.condition.uiCondition = this;
     }
 
-    // Update is called once per frame
     void Update()
     {
         

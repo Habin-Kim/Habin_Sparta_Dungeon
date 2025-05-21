@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerCondition : MonoBehaviour
@@ -29,5 +27,16 @@ public class PlayerCondition : MonoBehaviour
     void Die()
     {
         Debug.Log("Player 다운!");
+    }
+
+    bool UseStamina(float amount)
+    {
+        if (stamina.curValue - amount < 0f)
+        {
+            return false;
+        }
+
+        stamina.Subtract(amount);
+        return true;
     }
 }

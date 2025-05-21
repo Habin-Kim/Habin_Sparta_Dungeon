@@ -6,8 +6,10 @@ public class PlayerController : MonoBehaviour
     [Header("Movement")]
     [SerializeField] private float moveSpeed = 2f; // 움직이는 속도
     [SerializeField] private float jumpForce = 2f; // 점프 힘
+    [SerializeField] private float runSpeed = 4f; // 달리는 속도
     [SerializeField] private LayerMask groundLayer; // 바닥 레이어 체크
     private Vector2 _curMoveInput; // 현재 누른 이동버튼
+    private float curSpeed;
 
     [Header("Look")]
     [SerializeField] private Transform cameraContainer;
@@ -23,6 +25,7 @@ public class PlayerController : MonoBehaviour
     [Header("HideInspector")]
     private Rigidbody _rigidbody;
     private bool canLook = true;
+    private bool isRunning;
 
     private void Awake()
     {
@@ -48,12 +51,12 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void OnLook(InputAction.CallbackContext context) // 마우스 입력
+    public void OnLookInput(InputAction.CallbackContext context) // 마우스 입력
     {
         _mouseDelta = context.ReadValue<Vector2>();
     }
 
-    public void OnMove(InputAction.CallbackContext context)
+    public void OnMoveInput(InputAction.CallbackContext context)
     {
         // 이동 버튼 누르고 있을때
         if (context.phase == InputActionPhase.Performed)
@@ -67,7 +70,19 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void OnJump(InputAction.CallbackContext context)
+    public void OnRunInput(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Started)
+        {
+            isRunning = true;
+        }
+        else if (context.phase == InputActionPhase.Canceled)
+        {
+            isRunning = false;
+        }
+    }
+
+    public void OnJumpInput(InputAction.CallbackContext context)
     {
         // 점프 버튼 눌렀을때 
         if (context.phase == InputActionPhase.Started && IsGrounded())
@@ -78,9 +93,11 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
+        curSpeed = isRunning ? runSpeed : moveSpeed;
+
         // 벡터 좌표로 생각 y는 앞뒤 x는 좌우
         Vector3 dir = (transform.forward * _curMoveInput.y) + (transform.right * _curMoveInput.x);
-        dir *= moveSpeed;
+        dir *= curSpeed;
         dir.y = _rigidbody.velocity.y;
 
         _rigidbody.velocity = dir;
