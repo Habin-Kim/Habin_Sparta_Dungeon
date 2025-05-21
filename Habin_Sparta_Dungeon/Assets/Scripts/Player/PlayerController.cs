@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 _mouseDelta; // 마우스 값
 
     [Header("HideInspector")]
+    private PlayerCondition _playerCondition;
     private Rigidbody _rigidbody;
     private bool canLook = true;
     private bool isRunning;
@@ -32,6 +33,7 @@ public class PlayerController : MonoBehaviour
     {
         // 컴포넌트에서 리지드바디
         _rigidbody = GetComponent<Rigidbody>();
+        _playerCondition = CharacterManager.Instance.Player.condition;
     }
 
     void Start()
@@ -97,7 +99,7 @@ public class PlayerController : MonoBehaviour
     {
         curSpeed = isRunning ? runSpeed : moveSpeed;
 
-        // 벡터 좌표로 생각 y는 앞뒤 x는 좌우
+        // y는 앞뒤 x는 좌우
         Vector3 dir = (transform.forward * _curMoveInput.y) + (transform.right * _curMoveInput.x);
         dir *= curSpeed;
         dir.y = _rigidbody.velocity.y;
@@ -114,7 +116,11 @@ public class PlayerController : MonoBehaviour
 
         transform.eulerAngles += new Vector3(0, _mouseDelta.x * lookSensitivity, 0);
     }
-
+    
+    /// <summary>
+    /// 바닥 체크
+    /// </summary>
+    /// <returns></returns>
     bool IsGrounded()
     {
         // 레이 4개 생성
@@ -145,11 +151,14 @@ public class PlayerController : MonoBehaviour
         canLook = !toggle;
     }
 
+    /// <summary>
+    /// 달리기 시 소모되는 스태미나
+    /// </summary>
     void RunStamina()
     {
         if (isRunning && _curMoveInput != Vector2.zero)
         {
-            bool canRun = CharacterManager.Instance.Player.condition.UseStamina(runCost);
+            bool canRun = _playerCondition.UseStamina(runCost);
 
             if (!canRun)
             {
