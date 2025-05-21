@@ -29,7 +29,7 @@ public class PlayerCondition : MonoBehaviour
         Debug.Log("Player 다운!");
     }
 
-    bool UseStamina(float amount)
+    public bool UseStamina(float amount)
     {
         if (stamina.curValue - amount < 0f)
         {

@@ -1368,6 +1368,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Move - W,A,S,D
 
+    Run - Left Shift
+
     Jump - Space'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 45bc11bf1ff914b3597a34f0cdf03b15, type: 2}
@@ -2326,7 +2328,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1955498672}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: OnMove
+        m_MethodName: OnMoveInput
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2342,7 +2344,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1955498672}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: OnLook
+        m_MethodName: OnLookInput
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2358,7 +2360,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1955498672}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: OnJump
+        m_MethodName: OnJumpInput
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2386,6 +2388,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 00e44985-6dbf-48ec-bf73-a2b5607daaa9
     m_ActionName: Player/Interaction[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1955498672}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnRunInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: c7137b4b-c5b1-4609-8d6d-d1a3ff0074b0
+    m_ActionName: Player/Run[/Keyboard/leftShift]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -2485,6 +2503,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 2
   jumpForce: 3
+  runSpeed: 4
+  runCost: 5
   groundLayer:
     serializedVersion: 2
     m_Bits: 64

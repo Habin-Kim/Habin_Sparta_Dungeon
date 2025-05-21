@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float moveSpeed = 2f; // 움직이는 속도
     [SerializeField] private float jumpForce = 2f; // 점프 힘
     [SerializeField] private float runSpeed = 4f; // 달리는 속도
+    [SerializeField] private float runCost = 0.02f; // 스태미나 소비
     [SerializeField] private LayerMask groundLayer; // 바닥 레이어 체크
     private Vector2 _curMoveInput; // 현재 누른 이동버튼
     private float curSpeed;
@@ -41,6 +42,7 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         Move();
+        RunStamina();
     }
 
     private void LateUpdate()
@@ -136,10 +138,23 @@ public class PlayerController : MonoBehaviour
 
         return false;
     }
-    
-        public void ToggleCursor(bool toggle)
+
+    public void ToggleCursor(bool toggle)
     {
         Cursor.lockState = toggle ? CursorLockMode.None : CursorLockMode.Locked;
         canLook = !toggle;
+    }
+
+    void RunStamina()
+    {
+        if (isRunning && _curMoveInput != Vector2.zero)
+        {
+            bool canRun = CharacterManager.Instance.Player.condition.UseStamina(runCost);
+
+            if (!canRun)
+            {
+                isRunning = false;
+            }
+        }
     }
 }
