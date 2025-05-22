@@ -26,7 +26,7 @@ public class MovePlatform : MonoBehaviour
         _deltaMovement = transform.position - _lastPosition;
         _lastPosition = transform.position;
 
-        float offset = Mathf.PingPong(Time.time * moveSpeed, moveDistance) - moveDistance / 2f;
+        float offset = Mathf.PingPong(Time.fixedTime * moveSpeed, moveDistance) - moveDistance / 2f;
         Vector3 target = _startPos;
 
         if (moveAxis == MoveAxis.X)
