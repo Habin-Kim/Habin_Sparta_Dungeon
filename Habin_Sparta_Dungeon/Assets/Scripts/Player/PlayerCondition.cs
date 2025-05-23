@@ -1,6 +1,12 @@
+using System;
 using UnityEngine;
 
-public class PlayerCondition : MonoBehaviour
+public interface IDamagable
+{ 
+    void TakePhysicalDamage(int damageAmount);
+}
+
+public class PlayerCondition : MonoBehaviour, IDamagable
 {
     public UICondition uiCondition;
 
@@ -8,6 +14,8 @@ public class PlayerCondition : MonoBehaviour
     public Condition stamina { get { return uiCondition.stamina; } }
 
     public float noStamina;
+
+    public event Action OnTakeDamage;
 
     void Update()
     {
@@ -26,7 +34,7 @@ public class PlayerCondition : MonoBehaviour
 
     void Die()
     {
-        Debug.Log("Player 다운!");
+        Debug.Log("사망");
     }
 
     public bool UseStamina(float amount)
@@ -38,5 +46,11 @@ public class PlayerCondition : MonoBehaviour
 
         stamina.Subtract(amount);
         return true;
+    }
+
+    public void TakePhysicalDamage(int damage)
+    {
+        health.Subtract(damage);
+        OnTakeDamage?.Invoke();
     }
 }

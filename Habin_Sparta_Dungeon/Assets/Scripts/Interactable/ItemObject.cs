@@ -22,7 +22,7 @@ public class ItemObject : MonoBehaviour, IInteractable
         // CharacterManager.Instance.Player.itemData = data;
         // CharacterManager.Instance.Player.addItem?.Invoke();
 
-        // 아이템 효과 호출
+        // 아이템 타입에 따라 작동 구분
         Destroy(gameObject);
     }
 

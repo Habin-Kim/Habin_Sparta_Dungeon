@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -116,7 +117,7 @@ public class PlayerController : MonoBehaviour
 
         transform.eulerAngles += new Vector3(0, _mouseDelta.x * lookSensitivity, 0);
     }
-    
+
     /// <summary>
     /// 바닥 체크
     /// </summary>
